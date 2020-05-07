@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import AuthContext from '../../context/auth/authContext';
 
 const Centers = () => {
-    return (
-        <h1> Desde Centros </h1>
-    );
+
+    const authContext = useContext(AuthContext);
+    const {userAuthenticated} = authContext;
+
+    useEffect(() =>{
+        userAuthenticated();
+    }, []);
+
+    return (<h1> Centros </h1>);
 }
 export default Centers
