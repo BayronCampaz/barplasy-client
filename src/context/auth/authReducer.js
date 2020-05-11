@@ -3,7 +3,7 @@ import {
     ERROR_REGISTRATION,
     GET_USER,
     SUCCESSFUL_LOGIN, 
-    ERROR_LOGIN, SIGN_UP, LOG_OUT} from '../../types'
+    ERROR_LOGIN, LOG_OUT} from '../../types'
 export default (state, action) => {
     switch(action.type){
         case SUCCESSFUL_LOGIN:

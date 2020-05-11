@@ -1,5 +1,4 @@
 :root {
-  --blanco: #ffffff;
   --gris1: #edf2f6;
   --gris2: #2f3848;
   --gris3: #1a202d;
@@ -18,10 +17,11 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: var(--gris1);
+  background-color: #2F303E;
   font-size: 16px; 
   font-size: 1.6rem;
   font-family: var(--textFont);
+  color: white;
 }
 
 
@@ -30,8 +30,13 @@ h1, h2 {
   font-weight: 900;
   margin: 0 0 4rem 0;
   text-align: center;
-  color: var(--gris2);
+  color: white;
 }
+
+h3 {
+  font-size: 2rem;
+}
+
 h1 span {
   font-weight: 400;
 }
@@ -48,15 +53,15 @@ ul {
 }
 a {
   text-decoration: none;
-  color: var(--gris2);
+  color: white;
 }
 
 /** BOTONES **/
 .btn {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: var(--headingFont);
   padding: 1.5rem;
-  font-size: 1.4;
+  font-size: 1.5rem;
   font-weight: 400;
   border-radius: .5rem;
   border: none;
@@ -65,9 +70,9 @@ a {
 .btn:hover {
   cursor: pointer;
 }
-.btn-primario {
-  background-color: var(--gris2);
-  color: var(--blanco);
+.btn-blue {
+  background-color: #1762A7;
+  color: white;
 }
 .btn-primario:hover {
   background: var(--gris3);
@@ -80,13 +85,18 @@ a {
   width: 100%;
 }
 .btn-submit:hover {
-  background-color: var(--gris2);
+  background-color: #1762A7;
 }
 .btn-blank {
   margin: 0;
   padding: 0;
   display: block;
   background-color: transparent;
+  color:white
+}
+
+.btn-blank:hover{
+  color : #1762A7
 }
 
 @media (min-width: 768px) {
@@ -96,7 +106,7 @@ a {
   }
 
   aside {
-      background-color: var(--blanco);
+      background-color: #202027;
       flex: 0 0 300px;
   }
   .seccion-principal {
@@ -108,7 +118,9 @@ a {
 
 /* BARRA LATERAL */
 aside  {
-  padding: 3rem;
+  padding: 1rem;
+  margin: 3rem;
+  background-color: #202027;
 }
 
 .formulario-nuevo-proyecto {
@@ -137,19 +149,20 @@ aside  {
 .app-header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--gris2);
-  padding: 4rem;
+  background-color: #202027;
+  padding: 2rem;
 }
-.nombre-usuario {
-  color: var(--blanco);
+.user-name {
+  color: white;
   font-size: 2.2rem;
   margin: 0;
 }
-.nombre-usuario span {
+.user-name span {
   font-weight: 900;
 }
-.nav-principal a {
-  color: var(--blanco);
+.nav-principal {
+  color: white;
+  margin-top: 0.5rem;
   text-decoration: none;
 }
 .nav-principal a:first-of-type {
@@ -170,7 +183,7 @@ aside  {
 }
 .contenedor-input label {
   margin-bottom: 1rem;
-  color: var(--blanco);
+  color: white;
 }
 .input-text {
   padding: 1rem;
@@ -195,7 +208,7 @@ aside  {
 .tarea {
   display: flex;
   justify-content: space-between;
-  background-color: var(--blanco);
+  background-color: white;
   padding: .5rem 2rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -261,7 +274,7 @@ aside  {
   max-width: 600px;
   margin: 2rem auto 0 auto;
   background-color: rgb(170, 0, 0);
-  color: var(--blanco);
+  color: white;
 }
 
 
@@ -285,8 +298,8 @@ aside  {
   transition: opacity 200ms;
 }
 
-.form-usuario {
-    background-color: var(--gris2);
+.background-dark {
+    background-color: #2f303e;
     height: 100vh;
     min-height: 800px;
     display: flex;
@@ -294,11 +307,13 @@ aside  {
     justify-content: center;
 }
 
-.contenedor-form {
+
+
+.form-container {
     padding: 5rem 3rem;
     max-width: 500px;
     width: 95%;
-    background-color: var(--blanco);
+    background-color:#202027;
     border-radius: 1rem;
 }
 
@@ -313,6 +328,7 @@ aside  {
 .campo-form label {
   flex: 0 0 100px;
   font-family: var(--textFont);
+  color: white;
 }
 .campo-form input[type="password"],
 .campo-form input[type="email"], 
@@ -322,8 +338,104 @@ aside  {
   flex: 1;
 }
 
-.enlace-cuenta {
+.account-link {
   margin-top: 2rem;
   display: block;
   opacity: .7;
+}
+
+.img-publication {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 80%;
+}
+
+.border-color {
+  border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  border: 1px solid #1762A7;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.little-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 150px;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.5rem;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #202027;
+  border-radius: 1px 1px 1px 1px;
+  -moz-border-radius: 1px 1px 1px 1px;
+  -webkit-border-radius: 1px 1px 1px 1px;
+  border: 1px solid #1762A7;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color:  #1762A7;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

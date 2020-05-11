@@ -48,8 +48,9 @@ const Login = (props) => {
     }
 
     return (
-        <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
+        <div className="background-dark">
+            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
+            <div className="form-container sombra-dark">
                 <h1>Iniciar Sesión</h1>
                 <form
                     onSubmit={onSubmit}
@@ -79,11 +80,11 @@ const Login = (props) => {
                     </div>
 
                     <div className="campo-form">
-                        <input type="submit" className="btn btn-primario btn-block" value="Iniciar Sesión" />
+                        <input type="submit" className="btn btn-blue btn-block" value="Iniciar Sesión" />
                     </div>
                 </form>
 
-                <Link to={'/register'} className="enlace-cuenta">
+                <Link to={'/register'} className="account-link">
                     Obtener Cuenta
                 </Link>
                 {alert &&
