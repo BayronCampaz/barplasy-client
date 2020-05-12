@@ -66,9 +66,6 @@ const Register = (props) => {
         });
         
     }
-
-
-
     return ( 
         <div className="background-dark">
             <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>

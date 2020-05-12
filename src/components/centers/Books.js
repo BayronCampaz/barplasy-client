@@ -1,7 +1,15 @@
 import React from 'react'
+import Book from './Book'
 
-const Book = () => {
+const Books = () => {
 
-    return (<div> Book </div>);
+    return (<div> 
+        <p className="title mt-5">Reservas o turnos actuales</p>
+        <Book/>
+        <Book/>
+        <p className="title mt-5">Reservas o turnos anteriores</p>
+        <Book/>
+        <Book/>
+         </div>);
 }
-export default Book
+export default Books
