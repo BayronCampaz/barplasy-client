@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import AlertContext from '../../context/alerts/alertContext';
-import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../../context/alerts/alertContext';
+import AuthContext from '../../../context/auth/authContext';
 
-const Login = (props) => {
+const LoginCenter = (props) => {
 
     const alertContext = useContext(AlertContext);
     const {alert, showAlert} = alertContext;
@@ -13,7 +13,7 @@ const Login = (props) => {
 
     useEffect(() => {
         if(authenticated){
-            props.history.push('/centers')
+            props.history.push('/home-center')
         }
 
         if(message){
@@ -24,10 +24,11 @@ const Login = (props) => {
     
     const [user, saveUser] = useState({
         email: '',
-        password: ''
+        password: '',
+        role: 'center'
     });
 
-    const {email, password} = user;
+    const {email, password, role} = user;
 
 
     const onChange = e => {
@@ -43,15 +44,15 @@ const Login = (props) => {
             showAlert('Todos los campos son obligatorios')
         }
 
-        login({email, password});
+        login({email, password, role});
         
     }
 
     return (
         <div className="background-dark">
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
+            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="500" height="500"></img>
             <div className="form-container sombra-dark">
-                <h1>Iniciar Sesión</h1>
+                <h1>Iniciar Sesión <br/> Cuenta Empresarial</h1>
                 <form
                     onSubmit={onSubmit}
                 >
@@ -68,7 +69,7 @@ const Login = (props) => {
                     </div>
 
                     <div className="campo-form">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Contraseña</label>
                         <input 
                             type="password"
                             id="password"
@@ -84,8 +85,11 @@ const Login = (props) => {
                     </div>
                 </form>
 
-                <Link to={'/register'} className="account-link">
-                    Obtener Cuenta
+                <Link to={'/register-center'} className="account-link">
+                    Obtener Cuenta Empresarial
+                </Link>
+                <Link to={'/'} className="account-link">
+                    Ingresar como usuario 
                 </Link>
                 {alert &&
                             <div className="alert alert-danger" role="alert">{alert.message}</div>
@@ -95,4 +99,4 @@ const Login = (props) => {
     );
 }
 
-export default Login
+export default LoginCenter

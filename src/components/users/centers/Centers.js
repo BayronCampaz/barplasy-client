@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import AuthContext from '../../context/auth/authContext';
+import AuthContext from '../../../context/auth/authContext';
 import NavBar from '../layout/NavBar';
 import Searcher from '../layout/Searcher'
 import PublicationCenter from './PublicationCenter';

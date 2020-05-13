@@ -1,8 +1,7 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import AlertContext from '../../context/alerts/alertContext';
-import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../../context/alerts/alertContext';
+import AuthContext from '../../../context/auth/authContext';
 
 const Register = (props) => {
 
@@ -99,7 +98,7 @@ const Register = (props) => {
                     </div>
 
                     <div className="campo-form">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Contraseña</label>
                         <input 
                             type="password"
                             id="password"
@@ -111,7 +110,7 @@ const Register = (props) => {
                     </div>
 
                     <div className="campo-form">
-                        <label htmlFor="confirmPassword">Confirmar Password</label>
+                        <label htmlFor="confirmPassword">Confirmar Contraseña</label>
                         <input 
                             type="password"
                             id="confirmPassword"
@@ -142,6 +141,11 @@ const Register = (props) => {
                 <Link to={'/'} className="account-link">
                     Volver a Iniciar Sesión
                 </Link>
+
+                <Link to={'/register-center'} className="account-link">
+                   Registrar Compañia
+                </Link>
+
                 {alert &&
                             <div className="alert alert-danger" role="alert">{alert.message}</div>
                         }

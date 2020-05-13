@@ -44,6 +44,28 @@ import {
             }
         }
 
+        const registerCenter = async data => {
+            try {
+                const response = await clientAxios.post('/centers', data)
+                console.log(response.data);
+                dispatch({
+                    type: SUCCESSFUL_REGISTRATION,
+                    payload: response.data
+                });
+
+                userAuthenticated();
+            } catch (error){
+                const alert = {
+                    message: error.response.data.message
+                }
+
+                dispatch({
+                    type:ERROR_REGISTRATION,
+                    payload: alert
+                })
+            }
+        }
+
         const userAuthenticated = async () => {
             const token = localStorage.getItem('token');
             if(token){
@@ -100,6 +122,7 @@ import {
                     message: state.message,
                     loading: state.loading,
                     registerUser,
+                    registerCenter,
                     login,
                     userAuthenticated,
                     logout
