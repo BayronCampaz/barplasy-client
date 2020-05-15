@@ -27,7 +27,7 @@ const Center = () => {
             especialistas en Color, corte y Novias. Siempre a la Vanguardia, pensando en las ultimas tendencias
              de Belleza.</h4>
             <h3 className="mt-5 mb-4">Nombre del servicio</h3>
-            <TakeTurnService/>
+            <TakeTurnService/>img className="img-bann
 
 
         </div> 

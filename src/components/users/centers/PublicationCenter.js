@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PublicationCenter = () => {
+const PublicationCenter = ({center}) => {
 
     return (
     <div className="border-color"> 
@@ -9,8 +9,8 @@ const PublicationCenter = () => {
                 <img className="img-publication" src="https://cms.modumb.com/storage/magazine/_800x422/5-trucos-y-consejos-para-no-equivocarte-al-elegir-un-curso-de-peluqueria.jpg"/>         
                 <div className="row">
                     <div className="col mt-2">
-                        <h3>Peluqueria Pepe</h3>
-                        <h4>Cll 43C #23 -12</h4> 
+                        <h3>{center.name}</h3>
+                        <h4>{center.location.address}</h4> 
                     </div>
                     <button className="btn btn-blue col mr-4">Reservar</button>
                 </div>

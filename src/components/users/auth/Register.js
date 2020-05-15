@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AlertContext from '../../../context/alerts/alertContext';
 import AuthContext from '../../../context/auth/authContext';
+import NavBarCenter from '../../centers/layout/NavBarCenter';
 
 const Register = (props) => {
 
@@ -67,6 +68,7 @@ const Register = (props) => {
     }
     return ( 
         <div className="background-dark">
+            <NavBarCenter/>
             <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
             <div className="form-container sombra-dark">
                 <h1>Obtener una cuenta</h1>

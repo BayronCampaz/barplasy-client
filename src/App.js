@@ -12,8 +12,12 @@ import Center from './components/users/centers/Center'
 import CenterState from './context/centers/centerState'
 import AlertState from './context/alerts/alertState';
 import AuthState from './context/auth/authState';
+import ServiceState from './context/services/serviceState'
 import tokenAuth from './config/token';
 import PrivateRoute from './components/routes/PrivateRoute'
+import EditSite from './components/centers/edition/EditSite';
+import AddService from './components/centers/edition/AddService';
+
 
 
 
@@ -28,19 +32,28 @@ function App() {
     <CenterState>
       <AlertState>
         <AuthState>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/register-center" component={RegisterCenter} />
-              <Route exact path="/login-center" component={LoginCenter}/>
-              <PrivateRoute exact path="/home-center" component={HomeCenter} />
-              <PrivateRoute exact path="/centers" component={Centers} />
-              <PrivateRoute exact path="/myBooks" component={Books} />
-              <PrivateRoute path="/center/:id" component={Center}/>
+          <ServiceState>
+            <Router>
+              <Switch>
+                {/* Users */}
+                <Route exact path="/" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <PrivateRoute exact path="/centers" component={Centers} />
+                <PrivateRoute exact path="/myBooks" component={Books} />
+                <PrivateRoute path="/center/:id" component={Center}/>
 
-            </Switch>
-          </Router>
+                {/* Centers */}
+                <Route exact path="/register-center" component={RegisterCenter} />
+                <Route exact path="/login-center" component={LoginCenter}/>
+                <PrivateRoute exact path="/home-center" component={HomeCenter} />
+                <PrivateRoute exact path="/edit-site" component={EditSite} />
+                <PrivateRoute exact path="/add-service" component={AddService} />
+                
+                
+
+              </Switch>
+            </Router>
+          </ServiceState>
       </AuthState>
       </AlertState>
     </CenterState>

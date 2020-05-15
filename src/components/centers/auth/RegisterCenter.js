@@ -14,7 +14,7 @@ const Register = (props) => {
 
     useEffect(() => {
         if(authenticated){
-            props.history.push('/centers')
+            props.history.push('/home-center')
         }
 
         if(message){

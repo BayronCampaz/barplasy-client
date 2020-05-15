@@ -204,10 +204,23 @@ aside  {
 }
 .campo-form input[type="password"],
 .campo-form input[type="email"], 
-.campo-form input[type="text"] {
-  border: 1px solid #e1e1e1;
+.campo-form input[type="text"],
+.campo-form input[type="number"],
+.campo-form select,
+.textarea{
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border: 1px solid #1762A7;
   padding: 1rem;
   flex: 1;
+}
+
+.campo-form select option {
+  background-color: #202027 ;
 }
 
 .account-link {
@@ -334,4 +347,8 @@ aside  {
   -moz-border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border: 1px solid #1762A7;
+}
+
+.textarea {
+  font-size: 1.6rem;
 }

@@ -6,24 +6,30 @@ import PublicationCenter from './PublicationCenter';
 import Center from './Center';
 import InformationSideBar from '../layout/InformationSideBar';
 import Books from '../centers/Books'
+import CenterContext from '../../../context/centers/centerContext'
 
 const Centers = () => {
 
     const authContext = useContext(AuthContext);
     const {userAuthenticated} = authContext;
 
+    const centerContext = useContext(CenterContext)
+    const {centers, getCenters} = centerContext;
+
     useEffect(() =>{
         userAuthenticated();
+        getCenters();
+        console.log(centers)
     }, []);
 
     return (
 
-        <div>
+        /*<div>
             <NavBar/>
             <div className="container">
                 <Books/>
             </div>
-        </div>
+        </div>*/
         
         /*<div>
             <NavBar/>
@@ -35,15 +41,17 @@ const Centers = () => {
             </div>
         </div>*/
         
-        /*<div> 
+        <div> 
             <NavBar/>       
             <div className="row">
                 <Searcher/>
                 <div className="col-md-8">
-                    <PublicationCenter/>
-                    <PublicationCenter/>
+                    {
+                    centers.map(center => (
+                        <PublicationCenter center={center}/>
+                    ))}
                 </div>
             </div>
-         </div>*/);
+         </div>);
 }
 export default Centers
