@@ -17,6 +17,7 @@ import tokenAuth from './config/token';
 import PrivateRoute from './components/routes/PrivateRoute'
 import EditSite from './components/centers/edition/EditSite';
 import AddService from './components/centers/edition/AddService';
+import UpdateService from './components/centers/edition/UpdateService';
 
 
 
@@ -40,7 +41,7 @@ function App() {
                 <Route exact path="/register" component={Register} />
                 <PrivateRoute exact path="/centers" component={Centers} />
                 <PrivateRoute exact path="/myBooks" component={Books} />
-                <PrivateRoute path="/center/:id" component={Center}/>
+                <PrivateRoute exact path="/centers/:centerId" component={Centers}/>
 
                 {/* Centers */}
                 <Route exact path="/register-center" component={RegisterCenter} />
@@ -48,9 +49,8 @@ function App() {
                 <PrivateRoute exact path="/home-center" component={HomeCenter} />
                 <PrivateRoute exact path="/edit-site" component={EditSite} />
                 <PrivateRoute exact path="/add-service" component={AddService} />
+                <PrivateRoute exact path="/update-service" component={UpdateService} />
                 
-                
-
               </Switch>
             </Router>
           </ServiceState>

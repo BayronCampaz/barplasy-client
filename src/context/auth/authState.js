@@ -25,7 +25,6 @@ import {
         const registerUser = async data => {
             try {
                 const response = await clientAxios.post('/users', data)
-                console.log(response.data);
                 dispatch({
                     type: SUCCESSFUL_REGISTRATION,
                     payload: response.data
@@ -47,7 +46,7 @@ import {
         const registerCenter = async data => {
             try {
                 const response = await clientAxios.post('/centers', data)
-                console.log(response.data);
+
                 dispatch({
                     type: SUCCESSFUL_REGISTRATION,
                     payload: response.data

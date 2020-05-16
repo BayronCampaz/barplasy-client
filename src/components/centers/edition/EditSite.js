@@ -1,8 +1,25 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import NavBarCenter from '../layout/NavBarCenter'
 import EditInfoSideBar from '../layout/EditInfoSideBar'
+import ServiceContext from '../../../context/services/serviceContext'
+import EditService from '../edition/EditService'
+import AuthContext from '../../../context/auth/authContext'
 
 const EditSite = (props) => {
+
+    const authContext = useContext(AuthContext);
+    const {user, userAuthenticated} = authContext;
+    const serviceContext = useContext(ServiceContext);
+    const { servicesCenter, getServices } = serviceContext;
+
+     useEffect( () => {
+        async function fetchData(){
+            await userAuthenticated();
+            getServices(user._id);
+        }
+        fetchData();
+    }, []);
+
 
 
     const openAddService = () => {
@@ -18,15 +35,18 @@ const EditSite = (props) => {
             <div className="col-md-8">
                 <img className="img-banner" src="https://blog.agendapro.com/hubfs/centro%20de%20belleza%20vac%C3%ADo.png"></img>
                 <div className="ml-5">
-                    <p className="title">Peluqueria La Maria</p>
-                    <h4>Este un centro especializado en belleza e imagen. En donde contamos con los mejores profesionales, 
-                    especialistas en Color, corte y Novias. Siempre a la Vanguardia, pensando en las ultimas tendencias
-                    de Belleza.</h4>
+                    <p className="title">{user.name}</p>
+                    <h4>{user.description}</h4>
                     <div className="row">
                         <h3 className="col mt-5 mb-4">Servicios</h3>
                         <button className="col btn btn-blue" onClick={openAddService}>Agregar Servicio</button>
+                    </div> 
+                    <div>
+                        {servicesCenter.map(service => (
+                        <EditService service={service}/>
+                    ))}
                     </div>
-                    
+
                 </div> 
             </div>
         </div>

@@ -1,49 +1,39 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
+import ServiceContext from '../../../context/services/serviceContext'
 
 const PublicationCenter = ({center}) => {
+
+    const history = useHistory()
+
+
+    const onClick = () => {
+        history.push('/centers/'+ center._id)
+    }
 
     return (
     <div className="border-color"> 
         <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-8">
                 <img className="img-publication" src="https://cms.modumb.com/storage/magazine/_800x422/5-trucos-y-consejos-para-no-equivocarte-al-elegir-un-curso-de-peluqueria.jpg"/>         
-                <div className="row">
-                    <div className="col mt-2">
-                        <h3>{center.name}</h3>
-                        <h4>{center.location.address}</h4> 
-                    </div>
-                    <button className="btn btn-blue col mr-4">Reservar</button>
-                </div>
-
+                    <button className="btn btn-blue col mr-4" onClick={onClick}>Reservar</button>
             </div>
-            <div className="col-md-6">
-                <div className="row d-flex align-items-center mb-4">
-                    <div className="col">
-                        <h4>Corte mohicano sencillo</h4>
-                        <h5>45min</h5> 
-                    </div>
-                    <h4 className="col" >$10000</h4>
-                    <button className="btn btn-blue col mr-4">Reservar</button>
-                </div>
+            <div className="col-md-4">
+                <h1>{center.name}</h1>
+                <h3>Ubicación</h3>
+                <h4 className="mb-5">{center.location.address}</h4> 
 
-                <div className="row d-flex align-items-center mb-4">
-                    <div className="col">
-                        <h4>Corte mujer sencillo</h4>
-                        <h5>45min</h5> 
-                    </div>
-                    <h4 className="col mt-2" >$10000</h4>
-                    <button className="btn btn-blue col mr-4">Reservar</button>
-                </div>
+                <h3>Celular</h3>
+                <h4 className="mb-5">{center.cellphone}</h4>
 
-                <div className="row d-flex align-items-center mb-4">
-                    <div className="col mt-2">
-                        <h4>Corte sencillo</h4>
-                        <h5>45min</h5> 
-                    </div>
-                    <h4 className="col mt-2" >$10000</h4>
-                    <button className="btn btn-blue col mr-4">Reservar</button>
+                <h3>Calificacion</h3>
+                <div>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star"></span>
+                        <span className="fa fa-star"></span>
                 </div>
-
             </div>
 
             

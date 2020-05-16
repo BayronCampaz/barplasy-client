@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InformationSideBar = () => {
+const InformationSideBar = ({center}) => {
     return ( 
         <aside> 
             <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png"className="little-img"></img>
@@ -8,12 +8,12 @@ const InformationSideBar = () => {
             <div className="container">
                 <div className="mb-3">
                     <b>Ubicación</b>
-                    <h4>Cll 32 # 13 - 5</h4>
+                    <h4>{center.location.address}</h4>
                 </div>
 
                 <div className="mb-3">
                     <b>Telefono</b>
-                    <h4>3174554845</h4>
+                    <h4>{center.cellphone}</h4>
                 </div>
 
                 <div className="mb-3">

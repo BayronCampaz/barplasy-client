@@ -5,7 +5,8 @@ import {GET_SERVICES,
     GET_SERVICE, 
     ADD_SERVICE, 
     UPDATE_SERVICE, 
-    DELETE_SERVICE} from '../../types';
+    DELETE_SERVICE, 
+    ACTUAL_SERVICE} from '../../types';
 import clientAxios from '../../config/axios'
 
 const ServiceState = props => {
@@ -18,13 +19,11 @@ const ServiceState = props => {
 
     const [state, dispatch] = useReducer(ServiceReducer, initialState);
 
-    const getServices = async center => {
-
-        console.log(center);
+    const getServices = async centerId => {
 
         try {
-            const response = await clientAxios.get('/services', { params: { center }});
-            console.log(response);
+            const response = await clientAxios.get('/services', { params: { centerId }});
+
             dispatch({
                 type: GET_SERVICES,
                 payload: response.data.services
@@ -48,9 +47,10 @@ const ServiceState = props => {
         }
     }
 
-    const deleteService = async (id, center) => {
+    const deleteService = async (id) => {
         try {
-            await clientAxios.delete(`/services/${id}`, { params: { center }});
+            const response = await clientAxios.delete(`/services/${id}`);
+            console.log(response);
             dispatch({
                 type: DELETE_SERVICE,
                 payload: id
@@ -61,29 +61,28 @@ const ServiceState = props => {
     }
 
     const updateService = async service => {
-
         try {
             const response = await clientAxios.put(`/services/${service._id}`, service);
-            
+            console.log(response)
             dispatch({
                 type: UPDATE_SERVICE,
-                payload: response.data.service
+                payload: response.data
             })
         } catch (error) {
             console.log(error);
         }
     }
 
-     /* Extrae una tarea para edición
-     const guardarTareaActual = tarea => {
+     
+     const saveActualService = service => {
         dispatch({
-            type: TAREA_ACTUAL,
-            payload: tarea
+            type: ACTUAL_SERVICE,
+            payload: service
         })
     }
 
 
-
+    /*
      Elimina la tareaseleccionada
     const limpiarTarea = () => {
         dispatch({
@@ -101,6 +100,7 @@ const ServiceState = props => {
                 addService,
                 deleteService,
                 updateService,
+                saveActualService
                 //guardarTareaActual,
                 //limpiarTarea
             }}

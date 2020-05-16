@@ -1,4 +1,4 @@
-import { GET_CENTERS, EDIT_CENTER} from '../../types';
+import { GET_CENTERS, EDIT_CENTER, GET_CENTER} from '../../types';
 
 
 export default (state, action) => {
@@ -8,6 +8,11 @@ export default (state, action) => {
             return {
                 ...state,
                 centers: action.payload
+            }
+        case GET_CENTER:
+            return {
+                ...state,
+                center: action.payload
             }
         default:
             return state;
