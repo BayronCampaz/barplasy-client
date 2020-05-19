@@ -7,7 +7,7 @@ import LoginCenter from './components/centers/auth/LoginCenter'
 import RegisterCenter from './components/centers/auth/RegisterCenter'
 import HomeCenter from './components/centers/dashboard/HomeCenter';
 import Centers from './components/users/centers/Centers'
-import Books from './components/users/centers/Books'
+import Reservations from './components/users/centers/Reservations'
 import Center from './components/users/centers/Center'
 import CenterState from './context/centers/centerState'
 import AlertState from './context/alerts/alertState';
@@ -18,6 +18,7 @@ import PrivateRoute from './components/routes/PrivateRoute'
 import EditSite from './components/centers/edition/EditSite';
 import AddService from './components/centers/edition/AddService';
 import UpdateService from './components/centers/edition/UpdateService';
+import ReservationState from './context/reservations/reservationState';
 
 
 
@@ -34,14 +35,16 @@ function App() {
       <AlertState>
         <AuthState>
           <ServiceState>
+            <ReservationState>
             <Router>
               <Switch>
                 {/* Users */}
                 <Route exact path="/" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <PrivateRoute exact path="/centers" component={Centers} />
-                <PrivateRoute exact path="/myBooks" component={Books} />
+                <PrivateRoute exact path="/reservations" component={Reservations} />
                 <PrivateRoute exact path="/centers/:centerId" component={Centers}/>
+                <PrivateRoute exact path="/centers/:centerId/:serviceId" component={Centers}/>
 
                 {/* Centers */}
                 <Route exact path="/register-center" component={RegisterCenter} />
@@ -53,6 +56,7 @@ function App() {
                 
               </Switch>
             </Router>
+            </ReservationState>
           </ServiceState>
       </AuthState>
       </AlertState>

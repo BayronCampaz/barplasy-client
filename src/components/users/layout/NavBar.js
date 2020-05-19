@@ -1,8 +1,12 @@
 import React, {useContext, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import AuthContext from '../../../context/auth/authContext';
 
 
 const NavBar = () => {
+
+    const history = useHistory();
+
 
     // Extraer la información de autenticación
     const authContext = useContext(AuthContext);
@@ -12,6 +16,10 @@ const NavBar = () => {
         userAuthenticated();
         // eslint-disable-next-line
     }, []);
+
+    const openReservations = () => {
+        history.push('/reservations')
+    }
 
 
     return ( 
@@ -23,7 +31,7 @@ const NavBar = () => {
 
                 <button 
                     className="btn btn-blank"
-                    onClick={() => logout() }>Mis Reservas</button>
+                    onClick={openReservations}>Mis Reservas</button>
             </nav>
             
             <nav className="nav-principal">

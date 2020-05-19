@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-const BookService = () => {
+const ReservationService = () => {
 
     const[date, saveDate] = useState({
         day : new Date(),
@@ -40,4 +40,4 @@ const BookService = () => {
         
     </div>);
 }
-export default BookService
+export default ReservationService

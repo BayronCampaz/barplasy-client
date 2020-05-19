@@ -18,5 +18,12 @@ export const GET_SERVICE = 'get_service'
 export const ADD_SERVICE = 'add_service'
 export const UPDATE_SERVICE = 'update_service'
 export const DELETE_SERVICE = 'delete_service'
-export const ACTUAL_SERVICE = 'actual_service'
+export const ACTUAL_SERVICE = 'actual_service' 
+
+export const GET_RESERVATIONS = 'get_reservations'
+export const GET_RESERVATION = 'get_reservation'
+export const ADD_RESERVATION = 'add_reservation'
+export const UPDATE_RESERVATION = 'update_reservation'
+export const DELETE_RESERVATION = 'delete_reservation'
+export const ACTUAL_RESERVATION = 'actual_reservation' 
 

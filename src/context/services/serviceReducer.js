@@ -1,5 +1,5 @@
 import {GET_SERVICES,
-    GET_SERVICE, 
+    GET_SERVICE,
     ADD_SERVICE, 
     UPDATE_SERVICE, 
     DELETE_SERVICE,
@@ -11,12 +11,13 @@ import {GET_SERVICES,
                 return {
                     ...state,
                     servicesCenter: action.payload
-                }
+                }         
             case GET_SERVICE:
+                console.log(action.payload)
                 return {
                     ...state,
-                    //errortarea: true
-                }
+                    service: action.payload
+                    }
             case ADD_SERVICE:
                 return {
                     ...state,
@@ -34,8 +35,6 @@ import {GET_SERVICES,
                     servicesCenter: state.servicesCenter.filter(service => service._id !== action.payload )
                 }
             case UPDATE_SERVICE:
-                console.log("----------------------------------------")
-                console.log(action.payload)
                 return {
                     ...state,
                     servicesCenter: state.servicesCenter.map(service => service._id === action.payload._id ? action.payload : service )

@@ -13,6 +13,7 @@ const ServiceState = props => {
 
     const initialState = {
         servicesCenter: [],
+        service: null,
         errorService: false,
         selectedService: null
     }
@@ -27,6 +28,19 @@ const ServiceState = props => {
             dispatch({
                 type: GET_SERVICES,
                 payload: response.data.services
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getService = async serviceId => {
+
+        try {
+            const response = await clientAxios.get('/services/'+serviceId);
+            dispatch({
+                type: GET_SERVICE,
+                payload: response.data
             })
         } catch (error) {
             console.log(error);
@@ -81,22 +95,15 @@ const ServiceState = props => {
         })
     }
 
-
-    /*
-     Elimina la tareaseleccionada
-    const limpiarTarea = () => {
-        dispatch({
-            type: LIMPIAR_TAREA
-        })
-    } */
-
     return (
         <ServiceContext.Provider
             value={{
                 servicesCenter : state.servicesCenter,
                 errorService: state.errorService,
                 selectedService: state.selectedService,
+                service: state.service,
                 getServices,
+                getService,
                 addService,
                 deleteService,
                 updateService,
