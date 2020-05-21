@@ -19,7 +19,6 @@ const NavBar = () => {
 
     const openReservations = () => {
         history.push('/reservations')
-        history.go()
     }
 
     const openHome = () => {

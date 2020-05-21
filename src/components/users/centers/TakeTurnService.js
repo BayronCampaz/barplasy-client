@@ -27,7 +27,6 @@ const TakeTurnService = ({user, service, reservations}) => {
         addReservation({ serviceId, userId, timeEstimatedStart, timeEstimatedFinish })
 
         history.push('/reservations')
-        history.go()
     }
 
     let actualReservations = []

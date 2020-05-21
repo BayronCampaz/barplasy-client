@@ -31,7 +31,7 @@ const Center = ({user, center, servicesCenter, service}) => {
                     <h3>Servicios</h3>
                     <div>
                         {servicesCenter.map(service => (
-                        <Service service={service}/>
+                        <Service key={service._id} service={service}/>
                         ))}
                     </div>           
         
