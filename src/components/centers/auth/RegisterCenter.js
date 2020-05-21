@@ -21,11 +21,13 @@ const Register = (props) => {
             showAlert(message.message)
         }
 
+       // eslint-disable-next-line
     }, [message, authenticated, props.history]);
 
     const [company, saveCompany] = useState({
         name: '',
         email: '',
+        address: '',
         password: '',
         confirmPassword: '',
         ownerId: '',
@@ -34,7 +36,7 @@ const Register = (props) => {
 
     });
 
-    const {name, email, password, confirmPassword, ownerId, ownerName, cellphone} = company;
+    const {name, email, address, password, confirmPassword, ownerId, ownerName, cellphone} = company;
 
 
     const onChange = e => {
@@ -47,7 +49,7 @@ const Register = (props) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        if(name.trim() === '' || email.trim() === '' || 
+        if(name.trim() === '' || email.trim() === '' || address.trim() === '' ||
             password.trim() === '' || confirmPassword.trim() === ''|| ownerId.trim() === '' || ownerName.trim() === '' || cellphone.trim()=== '' ){
                 
                 showAlert("No pueden haber campos vacios")
@@ -64,13 +66,13 @@ const Register = (props) => {
         }
 
         registerCenter({
-            name, email, password, confirmPassword, ownerId, ownerName, cellphone
+            name, email, address, password, confirmPassword, ownerId, ownerName, cellphone
         });
         
     }
     return ( 
         <div className="background-dark">
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="500" height="500"></img>
+            <img alt="" src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="500" height="500"></img>
             <div className="form-container sombra-dark">
                 <h1>Registra tu Compañia</h1>
                 <form
@@ -82,7 +84,7 @@ const Register = (props) => {
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Nombre de la Compañia"
+                            placeholder="Nombre del sitio"
                             value={name}
                             onChange={onChange}
                         />
@@ -96,6 +98,18 @@ const Register = (props) => {
                             name="email"
                             placeholder="Email Corporativo"
                             value={email}
+                            onChange={onChange}
+                        />
+                    </div>
+
+                    <div className="campo-form">
+                        <label htmlFor="address">Ubicacion </label>
+                        <input 
+                            type="text"
+                            id="address"
+                            name="address"
+                            placeholder="Dirección del sitio "
+                            value={address}
                             onChange={onChange}
                         />
                     </div>

@@ -15,14 +15,14 @@ const Service = ({service}) => {
     const confirmReservation = () => {
 
         saveActualService(service)
-        history.push(service.centerId+"/"+service._id)
+        history.push(service.center+"/"+service._id)
     }
 
     return (
     <div className="row service-container"> 
         <div className="col-md-10">
             <div className="row">
-                <h3 className="col-md-6">{service.name}s</h3>
+                <h3 className="col-md-6">{service.name}</h3>
                 <span className="col-md-6">{service.time} min</span>
             </div>
 

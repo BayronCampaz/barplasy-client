@@ -13,7 +13,6 @@ import {GET_SERVICES,
                     servicesCenter: action.payload
                 }         
             case GET_SERVICE:
-                console.log(action.payload)
                 return {
                     ...state,
                     service: action.payload

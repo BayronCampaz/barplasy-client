@@ -17,7 +17,7 @@ export default (state, action) => {
             }
         case GET_USER:
             return {
-                ... state,
+                ...state,
                 authenticated: true,
                 user: action.payload,
                 loading: false
@@ -34,6 +34,7 @@ export default (state, action) => {
                 message: action.payload,
                 loading: false
             }
-
+        default:
+            return state
     }
 }

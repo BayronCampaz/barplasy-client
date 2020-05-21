@@ -3,11 +3,18 @@ import {
     ADD_RESERVATION,
     UPDATE_RESERVATION,
     ACTUAL_RESERVATION,
-    DELETE_RESERVATION} from '../../types';
+    DELETE_RESERVATION, 
+    GET_RESERVATIONS_CENTER} from '../../types';
 
     export default (state, action) => {
         switch(action.type) {
             case GET_RESERVATIONS:
+                console.log(action.payload)
+                return {
+                    ...state,
+                    reservations: action.payload
+                }
+            case GET_RESERVATIONS_CENTER:
                 return {
                     ...state,
                     reservations: action.payload

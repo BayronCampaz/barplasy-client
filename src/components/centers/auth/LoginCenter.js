@@ -20,6 +20,7 @@ const LoginCenter = (props) => {
             showAlert(message.message)
         }
 
+        // eslint-disable-next-line
     }, [message, authenticated, props.history]);
     
     const [user, saveUser] = useState({
@@ -50,7 +51,7 @@ const LoginCenter = (props) => {
 
     return (
         <div className="background-dark">
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="500" height="500"></img>
+            <img alt="" src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="500" height="500"></img>
             <div className="form-container sombra-dark">
                 <h1>Iniciar Sesión <br/> Cuenta Empresarial</h1>
                 <form

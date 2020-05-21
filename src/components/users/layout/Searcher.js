@@ -3,7 +3,7 @@ import React from 'react';
 const Searcher = () => {
     return ( 
         <aside>
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png"className="little-img"></img>
+            <img alt="" src="https://i.ibb.co/RgzvMfs/logo-barplasy.png"className="little-img"></img>
             <div className="mb-3">
             <b>Servicios</b>
             </div>

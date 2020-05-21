@@ -48,10 +48,8 @@ const ServiceState = props => {
     }
 
     const addService = async service => {
-        console.log(service);
         try {
-            const response = await clientAxios.post('/services', service);
-            console.log(response);
+            await clientAxios.post('/services', service);
             dispatch({
                 type: ADD_SERVICE,
                 payload: service
@@ -63,8 +61,7 @@ const ServiceState = props => {
 
     const deleteService = async (id) => {
         try {
-            const response = await clientAxios.delete(`/services/${id}`);
-            console.log(response);
+            await clientAxios.delete(`/services/${id}`);
             dispatch({
                 type: DELETE_SERVICE,
                 payload: id
@@ -77,7 +74,6 @@ const ServiceState = props => {
     const updateService = async service => {
         try {
             const response = await clientAxios.put(`/services/${service._id}`, service);
-            console.log(response)
             dispatch({
                 type: UPDATE_SERVICE,
                 payload: response.data

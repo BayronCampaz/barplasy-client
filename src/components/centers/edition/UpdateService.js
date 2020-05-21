@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import AlertContext from '../../../context/alerts/alertContext';
 import NavBarCenter from '../../centers/layout/NavBarCenter';
@@ -103,7 +103,7 @@ const UpdateService = () => {
                         </select>
                     </div>
 
-                    <label htmlFor="time">Tiempo</label>
+                    <label htmlFor="time">Tiempo en minutos</label>
                     <div className="campo-form">
                         <input 
                             type="number"
@@ -122,7 +122,7 @@ const UpdateService = () => {
                             id="price"
                             name="price"
                             placeholder="Precio del servicio"
-                            value={price}
+                            value={price.$numberDecimal}
                             onChange={onChange}
                         />
                     </div>

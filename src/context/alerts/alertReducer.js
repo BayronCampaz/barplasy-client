@@ -9,5 +9,7 @@ export default (state, action) => {
             return {
                 alert: null
             }
+        default:
+            return state;
     }
 }

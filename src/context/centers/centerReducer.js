@@ -1,4 +1,4 @@
-import { GET_CENTERS, EDIT_CENTER, GET_CENTER} from '../../types';
+import { GET_CENTERS, GET_CENTER} from '../../types';
 
 
 export default (state, action) => {

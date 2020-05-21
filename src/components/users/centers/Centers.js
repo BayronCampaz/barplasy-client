@@ -6,10 +6,8 @@ import Searcher from '../layout/Searcher'
 import PublicationCenter from './PublicationCenter';
 import Center from './Center';
 import InformationSideBar from '../layout/InformationSideBar';
-import Reservations from '../centers/Reservations'
 import CenterContext from '../../../context/centers/centerContext'
 import ServiceContext from '../../../context/services/serviceContext'
-import TakeTurnService from './TakeTurnService';
 
 const Centers = () => {
 
@@ -38,6 +36,7 @@ const Centers = () => {
         }
         fetchData();
         setBusy(false);
+        // eslint-disable-next-line 
     }, [centerId])
 
     if(centerId && center && serviceId && !isBusy){

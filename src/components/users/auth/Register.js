@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AlertContext from '../../../context/alerts/alertContext';
 import AuthContext from '../../../context/auth/authContext';
-import NavBarCenter from '../../centers/layout/NavBarCenter';
+
 
 const Register = (props) => {
 
@@ -20,7 +20,7 @@ const Register = (props) => {
         if(message){
             showAlert(message.message)
         }
-
+    // eslint-disable-next-line 
     }, [message, authenticated, props.history]);
 
     const [user, saveUser] = useState({
@@ -68,13 +68,15 @@ const Register = (props) => {
     }
     return ( 
         <div className="background-dark">
-            <NavBarCenter/>
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
+            <img alt="" src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
             <div className="form-container sombra-dark">
                 <h1>Obtener una cuenta</h1>
                 <form
                     onSubmit={onSubmit}
                 >
+                    {alert &&
+                            <div className="alert alert-danger" role="alert">{alert.message}</div>
+                        }
                     <div className="campo-form">
                         <label htmlFor="name">Nombre</label>
                         <input 
@@ -147,10 +149,6 @@ const Register = (props) => {
                 <Link to={'/register-center'} className="account-link">
                    Registrar Compañia
                 </Link>
-
-                {alert &&
-                            <div className="alert alert-danger" role="alert">{alert.message}</div>
-                        }
             </div>
         </div>
      );

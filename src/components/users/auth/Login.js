@@ -19,7 +19,7 @@ const Login = (props) => {
         if(message){
             showAlert(message.message)
         }
-
+        // eslint-disable-next-line
     }, [message, authenticated, props.history]);
     
     const [user, saveUser] = useState({
@@ -50,7 +50,7 @@ const Login = (props) => {
 
     return (
         <div className="background-dark">
-            <img src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
+            <img alt="" src="https://i.ibb.co/RgzvMfs/logo-barplasy.png" width="400" height="400"></img>
             <div className="form-container sombra-dark">
                 <h1>Iniciar Sesión</h1>
                 <form

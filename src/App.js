@@ -8,22 +8,16 @@ import RegisterCenter from './components/centers/auth/RegisterCenter'
 import HomeCenter from './components/centers/dashboard/HomeCenter';
 import Centers from './components/users/centers/Centers'
 import Reservations from './components/users/centers/Reservations'
-import Center from './components/users/centers/Center'
 import CenterState from './context/centers/centerState'
 import AlertState from './context/alerts/alertState';
 import AuthState from './context/auth/authState';
 import ServiceState from './context/services/serviceState'
-import tokenAuth from './config/token';
 import PrivateRoute from './components/routes/PrivateRoute'
 import EditSite from './components/centers/edition/EditSite';
 import AddService from './components/centers/edition/AddService';
 import UpdateService from './components/centers/edition/UpdateService';
 import ReservationState from './context/reservations/reservationState';
 
-
-
-
-const token = localStorage.getItem('token');
 
 function App() {
 
@@ -53,6 +47,9 @@ function App() {
                 <PrivateRoute exact path="/edit-site" component={EditSite} />
                 <PrivateRoute exact path="/add-service" component={AddService} />
                 <PrivateRoute exact path="/update-service" component={UpdateService} />
+
+                {/*Not Found*/}
+                <Route exact path="" component={Login} />
                 
               </Switch>
             </Router>

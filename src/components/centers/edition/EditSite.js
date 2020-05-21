@@ -18,6 +18,7 @@ const EditSite = (props) => {
             getServices(user._id);
         }
         fetchData();
+        // eslint-disable-next-line
     }, []);
 
 
@@ -33,7 +34,7 @@ const EditSite = (props) => {
         <div className="row">
             <EditInfoSideBar/>
             <div className="col-md-8">
-                <img className="img-banner" src="https://blog.agendapro.com/hubfs/centro%20de%20belleza%20vac%C3%ADo.png"></img>
+                <img alt="" className="img-banner" src="https://blog.agendapro.com/hubfs/centro%20de%20belleza%20vac%C3%ADo.png"></img>
                 <div className="ml-5">
                     <p className="title">{user.name}</p>
                     <h4>{user.description}</h4>
@@ -41,7 +42,7 @@ const EditSite = (props) => {
                         <h3 className="col mt-5 mb-4">Servicios</h3>
                         <button className="col btn btn-blue" onClick={openAddService}>Agregar Servicio</button>
                     </div> 
-                    <div>
+                    <div className="mb-5">
                         {servicesCenter.map(service => (
                         <EditService service={service}/>
                     ))}

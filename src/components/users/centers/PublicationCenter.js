@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react'
+import React from 'react'
 import {useHistory} from 'react-router-dom'
-import ServiceContext from '../../../context/services/serviceContext'
+
 
 const PublicationCenter = ({center}) => {
 
@@ -15,7 +15,7 @@ const PublicationCenter = ({center}) => {
     <div className="border-color"> 
         <div className="row">
             <div className="col-md-8">
-                <img className="img-publication" src="https://cms.modumb.com/storage/magazine/_800x422/5-trucos-y-consejos-para-no-equivocarte-al-elegir-un-curso-de-peluqueria.jpg"/>         
+                <img alt="" className="img-publication" src={center.banner}/>         
                     <button className="btn btn-blue col mr-4" onClick={onClick}>Reservar</button>
             </div>
             <div className="col-md-4">

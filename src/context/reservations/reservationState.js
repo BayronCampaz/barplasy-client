@@ -6,7 +6,8 @@ import {
     ADD_RESERVATION,
     UPDATE_RESERVATION,
     ACTUAL_RESERVATION,
-    DELETE_RESERVATION} from '../../types';
+    DELETE_RESERVATION,
+    GET_RESERVATIONS_CENTER} from '../../types';
 import clientAxios from '../../config/axios'
 
 const ReservationState = props => {
@@ -31,11 +32,22 @@ const ReservationState = props => {
         }
     }
 
-    const addReservation = async reservation => {
-        console.log(reservation);
+    const getReservationsCenter = async centerId => {
         try {
-            const response = await clientAxios.post('/reservations', reservation);
-            console.log(response);
+            const response = await clientAxios.get('/reservations' , { params: { centerId }} );
+
+            dispatch({
+                type: GET_RESERVATIONS_CENTER,
+                payload: response.data.reservations
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const addReservation = async reservation => {
+        try {
+            await clientAxios.post('/reservations', reservation);
             dispatch({
                 type: ADD_RESERVATION,
                 payload: reservation
@@ -47,8 +59,7 @@ const ReservationState = props => {
 
     const deleteReservation = async (id) => {
         try {
-            const response = await clientAxios.delete(`/reservations/${id}`);
-            console.log(response);
+            await clientAxios.delete(`/reservations/${id}`);
             dispatch({
                 type: DELETE_RESERVATION,
                 payload: id
@@ -61,11 +72,10 @@ const ReservationState = props => {
 
     const updateReservation = async reservation => {
         try {
-            const response = await clientAxios.put(`/reservations/${reservation._id}`, reservation);
-            console.log(response)
+            await clientAxios.put(`/reservations/${reservation._id}`, reservation);
             dispatch({
                 type: UPDATE_RESERVATION,
-                payload: response.data
+                payload: reservation
             })
         } catch (error) {
             console.log(error);
@@ -86,6 +96,7 @@ const ReservationState = props => {
                 reservations : state.reservations,
                 selectedReservation: state.selectedReservation,
                 getReservations,
+                getReservationsCenter,
                 addReservation,
                 deleteReservation,
                 updateReservation,

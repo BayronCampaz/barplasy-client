@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import AlertContext from '../../../context/alerts/alertContext';
 import NavBarCenter from '../../centers/layout/NavBarCenter';
@@ -102,7 +102,7 @@ const AddService = () => {
                         </select>
                     </div>
 
-                    <label htmlFor="time">Tiempo</label>
+                    <label htmlFor="time">Tiempo en minutos</label>
                     <div className="campo-form">
                         <input 
                             type="number"
