@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Login from './components/users/auth/Login'
 import Register from './components/users/auth/Register'
 import LoginCenter from './components/centers/auth/LoginCenter'
@@ -49,7 +49,7 @@ function App() {
                 <PrivateRoute exact path="/update-service" component={UpdateService} />
 
                 {/*Not Found*/}
-                <Route exact path="" component={Login} />
+                <Redirect to="/" />
                 
               </Switch>
             </Router>
